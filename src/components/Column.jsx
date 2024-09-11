@@ -23,10 +23,11 @@ const Column = ({ state }) => {
             </button>
         </div>
         {tasks.map((task) => <Task title={task.title} key={task.title} />)}
-        {open && <div>
-            <div>
-                <input onChange={(e) => setText(e.target.value)} value={text} />
-                <button onClick={() => {
+        {open && <div className=' absolute bg-white/80 w-[100%] h-[100%] top-0 left-0'>
+            <div className=' absolute bg-red-500 z-[1] p-[1rem] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+            h-[5rem] w-[20rem] flex justify-center items-center'>
+                <input onChange={(e) => setText(e.target.value)} value={text} className=' border-blue-950 text-black px-2 py-[5px]' />
+                <button className=' border px-4 py-1' onClick={() => {
                     addTask(text, state)
                     setText('')
                     setOpen(false)
