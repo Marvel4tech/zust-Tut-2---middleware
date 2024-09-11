@@ -5,8 +5,8 @@ const useStore = create((set) => {
         tasks: [{title: "TestTask", state: "ONGOING"}],
         addTasks: (title, state) => 
             set((store) => ({tasks: [...store.tasks, { title, state }]})),
-        deleteTask: (title) =>
-            set((store) => ({tasks: store.tasks.filter((task) => store.task !== title)}))
+        deleteTasks: (title) =>
+            set((store) => ({tasks: store.tasks.filter((task) => task.title !== title)}))
     }
 })
 
