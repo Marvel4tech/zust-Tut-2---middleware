@@ -15,7 +15,7 @@ const Column = ({ state }) => {
     const addTask = useStore((store) => store.addTasks)
 
   return (
-    <div className=' bg-gray-900 w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2'>
+    <div onDragOver={(e) => (e.preventDefault())} className=' bg-gray-900 w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2'>
         <div className=' flex justify-between'>
             <p>{state}</p>
             <button onClick={() => setOpen(true)} className=' bg-white px-4 py-1 text-black rounded-lg hover:bg-gray-500 hover:text-white'>
