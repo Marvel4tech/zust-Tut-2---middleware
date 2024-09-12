@@ -24,7 +24,7 @@ const Column = ({ state }) => {
     onDragOver={(e) => {setDrop(true); (e.preventDefault())}}
     onDragLeave={(e) => {setDrop(false); (e.preventDefault())}}
     onDrop={(e) => {moveTask(draggedTask, state); setDraggedTask(null)}} 
-    className=' bg-gray-900 w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2'
+    className= {`bg-gray-900 w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2`}
     >
         <div className=' flex justify-between'>
             <p>{state}</p>
