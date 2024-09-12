@@ -15,9 +15,10 @@ const Column = ({ state }) => {
     const addTask = useStore((store) => store.addTasks)
 
     const setDraggedTask = useStore((store) => store.setDraggedTask)
+    const draggedTask = useStore((store) => store.draggedTask)
 
   return (
-    <div onDragOver={(e) => (e.preventDefault())} onDrop={(e) => {setDraggedTask(null); console.log("drop")}} className=' bg-gray-900 
+    <div onDragOver={(e) => (e.preventDefault())} onDrop={(e) => {console.log(draggedTask); setDraggedTask(null)}} className=' bg-gray-900 
     w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2'>
         <div className=' flex justify-between'>
             <p>{state}</p>
