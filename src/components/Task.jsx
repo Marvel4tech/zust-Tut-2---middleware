@@ -9,6 +9,8 @@ const Task = ({ title }) => {
 
     const deleteTask = useStore((store) => store.deleteTasks)
 
+    const setDraggedTask = useStore((store) => store.setDraggedTask)
+
   return (
     <div draggable className=' bg-white rounded-md min-h-[5rem] text-black p-[0.5rem] flex flex-col justify-between cursor-move'>
         {task.title}
