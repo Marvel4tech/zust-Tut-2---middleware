@@ -6,6 +6,7 @@ import { shallow } from 'zustand/shallow';
 const Column = ({ state }) => {
     const [text, setText] = useState('')
     const [open, setOpen] = useState(false)
+    const [drop, setDrop] = useState(false)
 
     const tasks = useStore((store) => 
         store.tasks.filter((task) => task.state === state),
@@ -19,8 +20,12 @@ const Column = ({ state }) => {
     const moveTask = useStore((store) => store.moveTask)
 
   return (
-    <div onDragOver={(e) => (e.preventDefault())} onDrop={(e) => {moveTask(draggedTask, state); setDraggedTask(null)}} className=' bg-gray-900 
-    w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2'>
+    <div 
+    onDragOver={(e) => {setDrop(true); (e.preventDefault())}}
+    onDragLeave={(e) => {setDrop(false); (e.preventDefault())}}
+    onDrop={(e) => {moveTask(draggedTask, state); setDraggedTask(null)}} 
+    className=' bg-gray-900 w-[30%] min-w-[250px] min-h-[20rem] rounded-md p-[0.5rem] text-white space-y-2'
+    >
         <div className=' flex justify-between'>
             <p>{state}</p>
             <button onClick={() => setOpen(true)} className=' bg-white px-4 py-1 text-black rounded-lg hover:bg-gray-500 hover:text-white'>
