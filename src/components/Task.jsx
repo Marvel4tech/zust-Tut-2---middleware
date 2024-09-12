@@ -12,7 +12,7 @@ const Task = ({ title }) => {
     const setDraggedTask = useStore((store) => store.setDraggedTask)
 
   return (
-    <div draggable className=' bg-white rounded-md min-h-[5rem] text-black p-[0.5rem] flex flex-col justify-between cursor-move'>
+    <div draggable onDragStart={() => {setDraggedTask(task.title)}} className=' bg-white rounded-md min-h-[5rem] text-black p-[0.5rem] flex flex-col justify-between cursor-move'>
         {task.title}
         <div className=' flex justify-between'>
             <div>
